@@ -1,15 +1,16 @@
 import "./ExpenseItem.css";
 
-function ExpenseItem() {
-    const expenseDate = new Date(2023,1,4);
-    const expenseTittle = "Car Insurence";
-    const expenseAmount = 250.5;
+function ExpenseItem(props) {
   return (
     <div className="expense-item">
-      <div>{expenseDate.toISOString()}</div>
+      <div>
+        <div>{props.date.toLocaleString("en-US", { month: "long" })}</div>
+        <div>{props.date.toLocaleString("en-US", { day: "2-digit" })}</div>
+        <div>{props.date.getFullYear()}</div>
+      </div>
       <div className="expense-item__description">
-        <h2> {expenseTittle}</h2>
-        <div className="expense-item__price">${expenseAmount}</div>
+        <h2> {props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   );
