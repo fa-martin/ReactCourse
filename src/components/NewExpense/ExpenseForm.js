@@ -37,7 +37,7 @@ const ExpenseForm = (props) => {
       date: new Date(UserImput.date)});
     setUserImput({
       title: "",
-      amount: "",
+      amount: 0,
       date: "",
     });
   };
@@ -74,6 +74,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="submit" onClick={props.onStopEditing}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
